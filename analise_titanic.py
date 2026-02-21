@@ -1,11 +1,9 @@
 # Importando as bibliotecas
 import pandas as pd
 import matplotlib.pyplot as plt
-
-
 # LENDO O ARQUIVO CSV
 
-# Lê o arquivo titanic.csv (deve estar na mesma pasta)
+# Lê o arquivo titanic.csv
 df = pd.read_csv("titanic_dataset.csv")
 
 # Mostra as 5 primeiras linhas
@@ -31,21 +29,21 @@ df["Age"] = df["Age"].fillna(df["Age"].mean())
 # Preenchendo valores nulos de Embarked com o valor mais frequente
 df["Embarked"] = df["Embarked"].fillna(df["Embarked"].mode()[0])
 
-# 3 ANÁLISE EXPLORATÓRIA
+# 3 ANALISE EXPLORATORIA
 
-# Taxa geral de sobrevivência
+# Taxa geral de sobrevivencia
 taxa_sobrevivencia = df["Survived"].mean()
 print("\nTaxa geral de sobrevivência:", taxa_sobrevivencia)
 
-# Sobrevivência por sexo
+# Sobrevivencia por sexo
 print("\nSobrevivência por sexo:")
 print(df.groupby("Sex")["Survived"].mean())
 
-# Sobrevivência por classe
+# Sobrevivencia por classe
 print("\nSobrevivência por classe:")
 print(df.groupby("Pclass")["Survived"].mean())
 
-# 4 CRIANDO UM GRÁFICO SIMPLES
+# 4 CRIANDO UM GRAFICO SIMPLES
 
 # Contagem de sobreviventes
 sobreviventes = df["Survived"].value_counts()
@@ -55,10 +53,11 @@ plt.title("Quantidade de Sobreviventes")
 plt.xlabel("Situação")
 plt.ylabel("Quantidade")
 
-# Salva o gráfico
+# Salva o grafico
 plt.savefig("grafico_sobreviventes.png")
 
-# Mostra o gráfico na tela
+# Mostra o grafico na tela
 plt.show()
 
 print("\nAnálise finalizada!")
+
